@@ -22,7 +22,7 @@ const AuthComponent = () => {
   return (
     <div>
       {isAuthenticated ? (
-        <div className="cursor-pointer">
+        <div className="cursor-pointer ">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar>
@@ -38,7 +38,7 @@ const AuthComponent = () => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="border-secondary w-72 bg-accent rounded-md mt-5 p-3"
+              className="border-secondary w-72 bg-accent rounded-md mt-5 p-3 "
               align="end"
             >
               <div className="flex gap-4 items-center cursor-auto">

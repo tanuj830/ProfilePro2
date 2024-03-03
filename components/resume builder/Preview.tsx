@@ -1,5 +1,4 @@
 "use client";
-import { usePDF } from "react-to-pdf";
 import ProjectPreview from "./project/ProjectPreview";
 import ExperiencePreview from "./experience/ExperiencePreview";
 import EducationPreview from "./education/EducationPreview";
@@ -54,14 +53,10 @@ const Preview: React.FC<PreviewProps> = ({
 
   const handleSave = () => {};
   return (
-    <div className="w-full h-full relative border border-muted shadow-sm">
-      <div className="absolute right-2 top-2">
+    <div className="w-full h-full  border border-muted shadow-sm">
+      <div className="">
         <div className="flex justify-end items-center gap-3">
-          <Button
-            onClick={() => handlePrint}
-            variant={"secondary"}
-            className=""
-          >
+          <Button onClick={() => handleSave} variant={"secondary"} className="">
             Save
           </Button>
 
