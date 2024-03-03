@@ -22,7 +22,9 @@ const ResumeBuilder = () => {
             </p>
           </div>
           <Link href="/dashboard/resume-builder/playground">
-            <Button className="text-white">Create a new resume</Button>
+            <Link href="/dashboard/resume-builder/playground">
+              <Button className="text-white">Create a new resume</Button>
+            </Link>
           </Link>
         </div>
       </div>

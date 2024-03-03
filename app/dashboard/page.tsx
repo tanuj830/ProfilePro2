@@ -48,11 +48,11 @@ const Layout = () => {
           Here you can see features of ProfilePro
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:mt-10 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mt-10 py-10">
         {features.map((f) => (
           <Link
             href={f.route}
-            className="p-5 border border-muted rounded-md hover:shadow-lg hover:shadow-primary-foreground"
+            className="p-5 md:p-10 border border-muted rounded-md hover:shadow-lg hover:shadow-primary-foreground"
           >
             <div className="flex flex-col items-center justify-center gap-4">
               <span className="w-fit bg-secondary p-5 rounded-full ">

@@ -27,6 +27,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
     </html>
   );
 }
