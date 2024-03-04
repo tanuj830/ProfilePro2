@@ -181,7 +181,7 @@ const page = () => {
           direction="horizontal"
           className=" w-full rounded-lg "
         >
-          <defaultSize={40}>
+          <ResizablePanel defaultSize={40}>
             <div className="flex  flex-col w-full ">
               <div className="flex justify-evenly mt-5 ">
                 <div className="border-b h-2 w-full absolute border-secondary -z-10" />
@@ -225,7 +225,7 @@ const page = () => {
                 />
               ) : null}
             </div>
-          </defaultSize=>
+          </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={60}>
             <div className="w-full ">
