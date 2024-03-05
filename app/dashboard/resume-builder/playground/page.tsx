@@ -185,10 +185,10 @@ const page = () => {
             <div className="flex  flex-col w-full ">
               <div className="flex justify-evenly mt-5 ">
                 <div className="border-b h-2 w-full absolute border-secondary -z-10" />
-                {buttons.map((btn) => (
+                {buttons.map(btn) => (
                   <div key={btn.id} className="flex flex-col items-center ">
                     <div className="rounded-full h-3 w-3 bg-[#0000ff]" />
-                    <button
+                    <butto
                       className="text-xs py-1 md:px-4 bg-muted rounded-3xl"
                       onClick={() => handleclick(btn.id)}
                     >
