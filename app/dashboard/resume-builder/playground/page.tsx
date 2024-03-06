@@ -189,7 +189,7 @@ const page = () => {
                   <div key={btn.id} className="flex flex-col items-center ">
                     <div className="rounded-full h-3 w-3 bg-[#0000ff]" />
                     <button
-                      className="text-xs py-1 md:px-4 bg-ed rounded-3xl"
+                      className="text-xs py-1 md:px-4 bg-muted rounded-3xl"
                       onClick={() => handleclick(btn.id)}
                     >
                       {btn.text}
