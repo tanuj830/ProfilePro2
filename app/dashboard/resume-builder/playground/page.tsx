@@ -4,14 +4,26 @@ import Education from "@/components/resume builder/education/Education";
 import Experience from "@/components/resume builder/experience/Experience";
 import Preview from "@/components/resume builder/Preview";
 import Project from "@/components/resume builder/project/Project";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { useParams, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-const page = () => {
+const page = (props: any) => {
+  // const data = useParams();
+  // const data = searchParams.get("data");
+  // const data = searchParams;
+  // console.log(data);
+  const router = useRouter();
+  const {
+    query: { data },
+  } = router;
+  console.log(data);
+
   // 1: Contact Details
   const [contactPageCompleted, setContactPageCompleted] = React.useState(false);
   const [contactPageActive, setContactPageActive] = React.useState(true);

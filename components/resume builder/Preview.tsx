@@ -6,7 +6,8 @@ import ContactPreview from "./contact/ContactPreview";
 import { Button } from "../ui/button";
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-
+import axios from "axios";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 interface PreviewProps {
   contactPageData: {
     name: string;
@@ -51,12 +52,25 @@ const Preview: React.FC<PreviewProps> = ({
     content: () => componentRef.current,
   });
 
-  const handleSave = () => {};
+  const { user } = useKindeBrowserClient();
+  const handleSave = () => {
+    const data = {
+      contact: contactPageData,
+      education: educationPageData,
+      experience: experiencePageData,
+      project: projectPageData,
+      userEmail: user?.email,
+    };
+    axios
+      .post("http://localhost:8000/resume/create", data)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="w-full h-full  border border-muted shadow-sm">
       <div className="">
         <div className="flex justify-end items-center gap-3">
-          <Button onClick={() => handleSave} variant={"secondary"} className="">
+          <Button onClick={handleSave} variant={"secondary"} className="">
             Save
           </Button>
 
