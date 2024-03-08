@@ -25,7 +25,7 @@ const page = () => {
     postalcode: "248002",
     phone: "7668088539",
     email: "tanujbhatt65@gmail.com",
-    linkedin: "https://tanujbhatt.in/",
+    linkedin: "https://tanujbhatt.in
   });
   // 2: Education Details
   const [educationPageCompleted, setEducationPageCompleted] =
