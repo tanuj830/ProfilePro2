@@ -18,7 +18,7 @@ const page = () => {
   // 1: Contact Details
   const [contactPageCompleted, setContactPageCompleted] = React.useState(false);
   const [contactPageActive, setContactPageActive] = React.useState(true);
-  const [contactPageData, setContactPageData] = act.useState({
+  const [contactPageData, setContactPageData] = React.useState({
     name: "Tanuj Bhatt",
     address: "Sunshine Enclave, Clement Town",
     city: "Dehradun",
