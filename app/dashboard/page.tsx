@@ -52,7 +52,7 @@ const Layout = () => {
         {features.map((f) => (
           <Link
             href={f.route}
-            className="p-5 md:p-10 border border-muted rounded-md hover:shadow-lg hover:shadow-primary-foreground"
+            className="p-5 md:p-10 border border-muted rounded-md hover:shadow-sm hover:shadow-primary hover:scale-105 transition-all duration-500"
           >
             <div className="flex flex-col items-center justify-center gap-4">
               <span className="w-fit bg-secondary p-5 rounded-full ">

@@ -40,9 +40,9 @@ const Sidebar = () => {
     },
   ];
   return (
-    <aside className="p-5 border-r border-r-secondary h-full">
+    <aside className="p-5 border-r border-r-secondary h-screen">
       <div className="flex flex-col justify-between h-full">
-        <div className="">
+        <div className="h-fit">
           <div className="">
             <Link
               className="cursor-pointer text-[1.8rem] font-semibold"
