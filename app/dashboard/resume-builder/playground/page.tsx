@@ -4,13 +4,31 @@ import Education from "@/components/resume builder/education/Education";
 import Experience from "@/components/resume builder/experience/Experience";
 import Preview from "@/components/resume builder/Preview";
 import Project from "@/components/resume builder/project/Project";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
+import axios from "axios";
+
+interface ContactType {
+  name: string;
+  address: string;
+  city: string;
+  postalcode: string;
+  phone: string;
+  email: string;
+  linkedin: string;
+}
+
+type ExistingDatatype = {
+  contact: ContactType;
+  experience: Array<any>;
+  education: Array<any>;
+  project: Array<any>;
+};
 
 const page = () => {
   const data = useParams();
@@ -18,15 +36,9 @@ const page = () => {
   // 1: Contact Details
   const [contactPageCompleted, setContactPageCompleted] = React.useState(false);
   const [contactPageActive, setContactPageActive] = React.useState(true);
-  const [contactPageData, setContactPageData] = React.useState({
-    name: "Tanuj Bhatt",
-    address: "Sunshine Enclave, Clement Town",
-    city: "Dehradun",
-    postalcode: "248002",
-    phone: "7668088539",
-    email: "tanujbhatt65@gmail.com",
-    linkedin: "https://tanujbhatt.in/",
-  });
+  const [contactPageData, setContactPageData] = React.useState(
+    {} as ContactType
+  );
   // 2: Education Details
   const [educationPageCompleted, setEducationPageCompleted] =
     React.useState(false);
@@ -76,45 +88,45 @@ const page = () => {
   ] as any);
   const buttons = [
     {
-      id: 1,
+      resumeID: 1,
       text: "Contact",
     },
     {
-      id: 2,
+      resumeID: 2,
       text: "Education",
     },
     {
-      id: 3,
+      resumeID: 3,
       text: "Experiences",
     },
     {
-      id: 4,
+      resumeID: 4,
       text: "Projects",
     },
     {
-      id: 5,
+      resumeID: 5,
       text: "Achievements",
     },
   ];
 
-  // Function for showing resume component on the basis of id
-  const handleclick = (id: Number) => {
-    if (id === 1) {
+  // Function for showing resume component on the basis of resumeID
+  const handleclick = (resumeID: Number) => {
+    if (resumeID === 1) {
       setContactPageActive(true);
       setEducationPageActive(false);
       setExperiencePageActive(false);
       setProjectPageActive(false);
-    } else if (id === 2) {
+    } else if (resumeID === 2) {
       setContactPageActive(false);
       setEducationPageActive(true);
       setExperiencePageActive(false);
       setProjectPageActive(false);
-    } else if (id === 3) {
+    } else if (resumeID === 3) {
       setContactPageActive(false);
       setEducationPageActive(false);
       setExperiencePageActive(true);
       setProjectPageActive(false);
-    } else if (id === 4) {
+    } else if (resumeID === 4) {
       setContactPageActive(false);
       setEducationPageActive(false);
       setExperiencePageActive(false);
@@ -122,6 +134,36 @@ const page = () => {
     }
   };
 
+  const [isUserModiExistData, setIsUserModiExistData] = React.useState(false); // is user updaitng exixting resume
+  const [dataFetchCompleted, setDataFetchCompleted] = React.useState(false);
+  const [resumeID, setResumeID] = React.useState<any>();
+  const [userPrevData, setUserPrevData] = React.useState<ExistingDatatype>();
+  const searchparams = useSearchParams();
+  useEffect(() => {
+    setResumeID(searchparams.get("resumeid") || "");
+    if (resumeID)
+      axios.get(`http://localhost:8000/resume/${resumeID}`).then((res) => {
+        // setUserPrevData(res.data);
+        // if (resumeID) setDataFetchCompleted(true);
+        if (res.data !== undefined) {
+          setIsUserModiExistData(true);
+          setContactPageData(res.data.contact);
+          setEducationPageData(res.data.education);
+          setExperiencePageData(res.data.experience);
+          setProjectPageData(res.data.project);
+        } else {
+          setContactPageData({
+            name: "Tanuj Bhatt",
+            address: "Sunshine Enclave, Clement Town",
+            city: "Dehradun",
+            postalcode: "248002",
+            phone: "7668088539",
+            email: "tanujbhatt65@gmail.com",
+            linkedin: "https://tanujbhatt.in/",
+          });
+        }
+      });
+  }, [resumeID]);
   return (
     <>
       <div className="lg:hidden flex flex-col-reverse lg:flex-row gap-5">
@@ -129,11 +171,11 @@ const page = () => {
           <div className="flex justify-evenly mt-5 ">
             <div className="border-b h-2 w-full absolute  border-secondary -z-10" />
             {buttons.map((btn) => (
-              <div key={btn.id} className="flex flex-col items-center ">
+              <div key={btn.resumeID} className="flex flex-col items-center ">
                 <div className="rounded-full h-3 w-3 bg-[#0000ff]" />
                 <button
                   className="text-xs py-1 md:px-4 bg-muted rounded-3xl"
-                  onClick={() => handleclick(btn.id)}
+                  onClick={() => handleclick(btn.resumeID)}
                 >
                   {btn.text}
                 </button>
@@ -144,6 +186,7 @@ const page = () => {
             <Contact
               setContactPageCompleted={setContactPageCompleted}
               setContactPageData={setContactPageData}
+              contactPageData={contactPageData}
             />
           ) : null}
           {educationPageActive ? (
@@ -174,6 +217,8 @@ const page = () => {
             educationPageData={educationPageData}
             experiencePageData={experiencePageData}
             projectPageData={projectPageData}
+            isExistingData={isUserModiExistData}
+            resumeID={resumeID}
           />
         </div>
       </div>
@@ -184,16 +229,20 @@ const page = () => {
           direction="horizontal"
           className=" w-full rounded-lg "
         >
-          <ResizablePanel defaultSize={40}>
+          <ResizablePanel defaultSize={60}>
             <div className="flex  flex-col w-full ">
               <div className="flex justify-evenly mt-5 ">
                 <div className="border-b h-2 w-full absolute border-secondary -z-10" />
                 {buttons.map((btn) => (
-                  <div key={btn.id} className="flex flex-col items-center ">
-                    <div className="rounded-full h-3 w-3 bg-[#0000ff]" />
+                  <div
+                    key={btn.resumeID}
+                    className="flex flex-col items-center "
+                  >
+                    *
+                    {/* <div className="rounded-full h-3 w-3 bg-[#0000ff]" /> */}
                     <button
                       className="text-xs py-1 md:px-4 bg-muted rounded-3xl"
-                      onClick={() => handleclick(btn.id)}
+                      onClick={() => handleclick(btn.resumeID)}
                     >
                       {btn.text}
                     </button>
@@ -204,6 +253,7 @@ const page = () => {
                 <Contact
                   setContactPageCompleted={setContactPageCompleted}
                   setContactPageData={setContactPageData}
+                  contactPageData={contactPageData}
                 />
               ) : null}
               {educationPageActive ? (
@@ -230,13 +280,15 @@ const page = () => {
             </div>
           </ResizablePanel>
           <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={60}>
+          <ResizablePanel defaultSize={40}>
             <div className="w-full ">
               <Preview
                 contactPageData={contactPageData}
                 educationPageData={educationPageData}
                 experiencePageData={experiencePageData}
                 projectPageData={projectPageData}
+                isExistingData={isUserModiExistData}
+                resumeID={resumeID}
               />
             </div>
           </ResizablePanel>

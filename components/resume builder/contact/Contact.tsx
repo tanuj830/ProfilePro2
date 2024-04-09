@@ -7,12 +7,23 @@ import { Button } from "@/components/ui/button";
 interface ContactProps {
   setContactPageCompleted: Function;
   setContactPageData: Function;
+  contactPageData: {
+    name: string;
+    address: string;
+    city: string;
+    postalcode: string;
+    phone: string;
+    email: string;
+    linkedin: string;
+  };
 }
 
 const Contact: React.FC<ContactProps> = ({
   setContactPageCompleted,
   setContactPageData,
+  contactPageData,
 }) => {
+  console.log(contactPageData);
   const [name, setName] = React.useState("");
   const [address, setAddress] = React.useState("");
   const [city, setCity] = React.useState("");
@@ -52,32 +63,47 @@ const Contact: React.FC<ContactProps> = ({
             }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              <Input label="Fullname" placeholder="Tanuj" setText={setName} />
+              <Input
+                label="Fullname"
+                placeholder="Tanuj"
+                setText={setName}
+                value={contactPageData.name}
+              />
               <Input
                 label="Address"
                 placeholder="Enter a Location"
                 setText={setAddress}
+                value={contactPageData.address}
               />
-              <Input label="City" placeholder="Dehradun" setText={setCity} />
+              <Input
+                label="City"
+                placeholder="Dehradun"
+                setText={setCity}
+                value={contactPageData.city}
+              />
               <Input
                 label="Postal Code"
                 placeholder="248002"
                 setText={setPostalcode}
+                value={contactPageData.postalcode}
               />
               <Input
                 label="Phone"
                 placeholder="987-654-3210"
                 setText={setPhone}
+                value={contactPageData.phone}
               />
               <Input
                 label="Email"
                 placeholder="e.g. mail@example.com"
                 setText={setEmail}
+                value={contactPageData.email}
               />
               <Input
                 label="Linked-in"
                 placeholder="Your Linked-in url"
                 setText={setLinkedin}
+                value={contactPageData.linkedin}
               />
             </div>
             <Button type="submit" className="mt-5 text-white">

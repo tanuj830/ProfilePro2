@@ -33,18 +33,15 @@ const ResumeBuilder = () => {
       {resumes.length > 0 ? (
         <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">
           {resumes.map((resume) => (
-            <div
-              onClick={() => {
-                router.push({
-                  pathname: "/dashboard/resume-builder/playground/",
-                  query: { data: JSON.stringify(resume) },
-                });
-              }}
+            <Link
+              // onClick={() =>
+              //   router.push("/dashboard/resume-builder/playground/")
+              // }
               key={resume._id}
-              // href={{
-              //   pathname: `/dashboard/resume-builder/playground/`,
-              //   query: { data: JSON.stringify(resume) },
-              // }}
+              href={{
+                pathname: `/dashboard/resume-builder/playground/`,
+                query: { resumeid: resume._id },
+              }}
               className="w-full p-3 md:p-5  rounded-tr-[40px] rounded-sm bg-muted overflow-hidden"
             >
               <img
@@ -62,7 +59,7 @@ const ResumeBuilder = () => {
                   <span>{resume.Date.slice(0, 10)}</span>
                 </small>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       ) : (

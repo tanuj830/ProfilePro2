@@ -17,11 +17,11 @@ const ResumeAnalyzer = () => {
               You dont have any notes created
             </h5>
             <p className="text-muted-foreground text-wrap leading-7 text-sm">
-              You currently dont have any resume to analyze. Analyze some resume
-              so that you can see them right here.
+              You currently dont have any resume to analyze. Add resume to
+              ananlyze it's ATS score.
             </p>
           </div>
-          <Link href="/dashboard/resume-builder/playground">
+          <Link href="/dashboard/resume-analyzer/playground">
             <Button className="text-white">Analyze a new resume</Button>
           </Link>
         </div>

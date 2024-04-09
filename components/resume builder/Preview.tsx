@@ -39,6 +39,8 @@ interface PreviewProps {
     endDate: string;
     disp: string;
   }>;
+  isExistingData: Boolean;
+  resumeID: string;
 }
 
 const Preview: React.FC<PreviewProps> = ({
@@ -46,6 +48,8 @@ const Preview: React.FC<PreviewProps> = ({
   educationPageData,
   experiencePageData,
   projectPageData,
+  isExistingData,
+  resumeID,
 }) => {
   const componentRef = useRef<HTMLDivElement>(null);
   const handlePrint = useReactToPrint({
@@ -61,10 +65,22 @@ const Preview: React.FC<PreviewProps> = ({
       project: projectPageData,
       userEmail: user?.email,
     };
-    axios
-      .post("http://localhost:8000/resume/create", data)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+
+    if (resumeID) {
+      // update data
+
+      axios
+        .post(`http://localhost:8000/resume/update/${resumeID}`, data)
+        .then((res) => console.log("updated"))
+        .catch((err) => console.log(err));
+    } else {
+      // create new data
+
+      axios
+        .post("http://localhost:8000/resume/create", data)
+        .then((res) => console.log("saved"))
+        .catch((err) => console.log(err));
+    }
   };
   return (
     <div className="w-full h-full  border border-muted shadow-sm">
