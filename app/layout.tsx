@@ -18,14 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           {children}
-        </>
+        </ThemeProvider>
       </body>
       {/* <script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script> */}
     </html>
