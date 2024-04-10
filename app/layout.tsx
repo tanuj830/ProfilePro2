@@ -19,9 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider
-          attribute="clas
-          defaultTheme="
-          system
+          attribute="class"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
