@@ -69,3 +69,13 @@
     --ring: 263.4 70% 50.4%;
   }
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hideScrollbar{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+}

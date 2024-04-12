@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 const CodeChat = () => {
   return (
-    <div className="h-[80vh] lg:h-full  w-full">
+    <div className="h-[80vh]   w-full">
       <div className="flex justify-center h-full w-full items-center ">
         {/* <h6>Your current route is {path}</h6> */}
         <div className="flex flex-col items-center text-center gap-5">
@@ -21,7 +21,7 @@ const CodeChat = () => {
               build some good stuff.
             </p>
           </div>
-          <Link href="/dashboard/resume-builder/playground">
+          <Link href="/dashboard/code-chat/playground">
             <Button className="text-white">Create a new room</Button>
           </Link>
         </div>
