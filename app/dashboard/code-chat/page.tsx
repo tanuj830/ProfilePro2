@@ -52,13 +52,15 @@ const CodeChat = () => {
                 <AlertDialogHeader>
                   <AlertDialogTitle>Create Room</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Create room and room id with your friends or collegoues and
-                    ask them to join your room.
+                    Create room and share room id with your friends or
+                    collegoues and ask them to join your room.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={createRoomID}></AlertDialogAction>
+                  <AlertDialogAction onClick={createRoomID}>
+                    Continue
+                  </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
