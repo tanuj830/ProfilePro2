@@ -17,7 +17,12 @@ const DashboardLayout = ({
 
   let route = usePathname();
   let routeArray = route.split("/");
-  const path = routeArray[routeArray.length - 1];
+  let path;
+  routeArray.find((path) => {
+    return path === "playground";
+  })
+    ? (path = "playground")
+    : null;
 
   return isAuthenticated ? (
     <div className="">

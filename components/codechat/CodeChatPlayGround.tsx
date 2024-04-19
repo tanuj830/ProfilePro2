@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -7,8 +7,12 @@ import {
 } from "@/components/ui/resizable";
 import Chat from "./Chat";
 import { useTheme } from "next-themes";
+import * as socketIO from "socket.io-client";
+const socket = socketIO.connect("http://localhost:8000");
+
 const CodeChatPlayGround = () => {
   const theme = useTheme();
+  const [messages, setMessages] = useState([] as any[]);
 
   window.onmessage = function (e) {
     if (e.data && e.data.language) {
@@ -16,6 +20,11 @@ const CodeChatPlayGround = () => {
       // handle the e.data which contains the code object
     }
   };
+
+  useEffect(() => {
+    socket.on("messageResponse", (data) => setMessages([...messages, data]));
+  }, [socket, messages]);
+
   return (
     <>
       <div className="h-full hidden lg:inline-block w-full">

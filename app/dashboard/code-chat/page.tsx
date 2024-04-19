@@ -1,8 +1,31 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { File, PlusCircle } from "lucide-react";
 import React from "react";
 import Link from "next/link";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { nanoid } from "nanoid";
+// import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 const CodeChat = () => {
+  const router = useRouter();
+  const createRoomID = () => {
+    const unique_id = nanoid();
+    localStorage.setItem("roomid", unique_id);
+
+    router.push(`/dashboard/code-chat/playground/${unique_id}`);
+  };
   return (
     <div className="h-[80vh]   w-full">
       <div className="flex justify-center h-full w-full items-center ">
@@ -21,9 +44,26 @@ const CodeChat = () => {
               build some good stuff.
             </p>
           </div>
-          <Link href="/dashboard/code-chat/playground">
-            <Button className="text-white">Create a new room</Button>
-          </Link>
+          {/* <Link href="/dashboard/code-chat/playground"> */}
+          <Button className="text-white">
+            <AlertDialog>
+              <AlertDialogTrigger> Create a new room</AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Create Room</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Create room and room id with your friends or collegoues and
+                    ask them to join your room.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={createRoomID}></AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </Button>
+          {/* </Link> */}
         </div>
       </div>
     </div>

@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Input } from "../ui/input";
 import { IoSendOutline } from "react-icons/io5";
 
 const Chat = () => {
+  const [roomid, setRoomid] = React.useState("");
+  const [idCopied, setIdCopied] = React.useState(false);
+  useEffect(() => {
+    setRoomid(localStorage.getItem("roomid") || "");
+  }, []);
+
+  useEffect(() => {
+    if (idCopied) {
+      setTimeout(() => {
+        setIdCopied(false);
+      }, 2000);
+    }
+  }, [idCopied]);
+
   return (
     <div className=" flex flex-col justify-between gap-1 h-full   w-full shadow-lg bg-muted   rounded-lg overflow-y-scroll hideScrollbar">
       <div className="h-[90%] overflow-y-scroll p-3 hideScrollbar">
         <h6 className="text-md font-medium">
           Chat Box{" "}
-          <span className="text-muted-foreground text-xs">#1290337</span>
+          <span
+            className="text-muted-foreground text-xs hover:underline cursor-pointer"
+            onClick={() => {
+              navigator.clipboard.writeText(roomid);
+              setIdCopied(true);
+            }}
+          >
+            #{roomid}
+          </span>
         </h6>
         <p className="text-xs text-secondary-foreground">
-          Chat with your roommates
+          Chat with your roommates{" "}
+          {idCopied ? (
+            <span className="text-primary text-md">ID Copied </span>
+          ) : null}
         </p>
         <div className="flex justify-start items-center mt-5">
           <div className="flex flex-col mt-1 ">

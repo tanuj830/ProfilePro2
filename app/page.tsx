@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import * as socketIO from "socket.io-client";
+const socket = socketIO.connect("http://localhost:8000");
 
 export default function Home() {
   return (
