@@ -66,7 +66,7 @@ const CodeChat = () => {
             </AlertDialog>
           </Button>
           {/* </Link> */}
-        </div>
+        </div
       </div>
     </div>
   );
