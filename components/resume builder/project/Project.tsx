@@ -63,26 +63,31 @@ const Project: React.FC<ProjectProps> = ({
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <Input
+                value=""
                 label="Title"
                 placeholder="ProfilePro"
                 setText={setTitle}
               />
               <Input
+                value=""
                 label="Skills"
                 placeholder="ReactJS, NextJS, JavaScript, TypeScript..."
                 setText={setSkills}
               />
               <Input
+                value=""
                 label="Start Year"
                 placeholder="2020-2024"
                 setText={setStartDate}
               />
               <Input
+                value=""
                 label="End Year"
                 placeholder="2020-2024"
                 setText={setEndDate}
               />
               <Input
+                value=""
                 label="Description"
                 placeholder="Explain your project"
                 setText={setDisp}

@@ -57,24 +57,38 @@ const Contact: React.FC<ExperienceProps> = ({
         <div className="">
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              <Input setText={setTitle} label="Job title" placeholder="ceo" />
               <Input
+                value=""
+                setText={setTitle}
+                label="Job title"
+                placeholder="ceo"
+              />
+              <Input
+                value=""
                 setText={setEmployer}
                 label="employer"
                 placeholder="Google"
               />
               <Input
+                value=""
                 setText={setStartDate}
                 label="start date"
                 placeholder="Enter Date"
               />
               <Input
+                value=""
                 setText={setEndDate}
                 label="end date"
                 placeholder="Enter Date"
               />
-              <Input setText={setCity} label="city" placeholder="Dehradun" />
               <Input
+                value=""
+                setText={setCity}
+                label="city"
+                placeholder="Dehradun"
+              />
+              <Input
+                value=""
                 setText={setDisp}
                 label="Description"
                 placeholder="Write your work experience"

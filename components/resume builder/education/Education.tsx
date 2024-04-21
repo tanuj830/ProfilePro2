@@ -56,17 +56,25 @@ const Education: React.FC<EducationProps> = ({
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <Input
+                value=""
                 label="Start and End Year"
                 placeholder="2020-2024"
                 setText={setYear}
               />
-              <Input label="Degree" placeholder="B-tech" setText={setDegree} />
               <Input
+                value=""
+                label="Degree"
+                placeholder="B-tech"
+                setText={setDegree}
+              />
+              <Input
+                value=""
                 label="Institute"
                 placeholder="Graphic Era Hill University"
                 setText={setSchool}
               />
               <Input
+                value=""
                 label="CGPA/ Marks"
                 placeholder="8.1/ 10"
                 setText={setGrade}
