@@ -4,14 +4,14 @@ interface InputProps {
   label: string;
   placeholder: string;
   setText: Function;
-  // value: string;
+  value: string;
 }
 
 const Input: React.FC<InputProps> = ({
   label,
   placeholder,
   setText,
-  // value,
+  value,
 }) => {
   return (
     <div className="flex flex-col gap-1">
@@ -25,7 +25,7 @@ const Input: React.FC<InputProps> = ({
         type="text"
         placeholder={placeholder}
         onChange={(e) => setText(e.target.value)}
-        // defaultValue={value}
+        defaultValue={value}
         className="rounded-md  py-3 px-4 hover:outline-primary outline-none bg-transparent border border-muted"
       />
     </div>
