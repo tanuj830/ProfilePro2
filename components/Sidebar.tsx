@@ -42,7 +42,7 @@ const Sidebar = () => {
   return (
     <aside className="p-5 border-r border-r-secondary h-screen">
       <div className="flex flex-col justify-between h-full">
-        <div className="h-fit">
+        < className="h-fit">
           <div className="">
             <Link
               className="cursor-pointer text-[1.8rem] font-semibold"
@@ -69,7 +69,7 @@ const Sidebar = () => {
               ))}
             </div>
           </div>
-        </div>
+        
         <div>
           <Link
             className={`bg-primary  p-3 rounded-lg flex items-center gap-2 text-md text-white `}
