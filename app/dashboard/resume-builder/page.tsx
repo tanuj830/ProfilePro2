@@ -14,9 +14,13 @@ const ResumeBuilder = () => {
   const { user } = useKindeBrowserClient();
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/resume/all/${user?.email}`)
+      .get(`https://profileproserver.onrender.com/resume/all/${user?.email}`)
       .then((res) => setResumes(res.data))
       .catch((error) => console.log(error));
+    // axios
+    //   .get(`http://localhost:8000/resume/all/${user?.email}`)
+    //   .then((res) => setResumes(res.data))
+    //   .catch((error) => console.log(error));
   }, [user]);
 
   const router = useRouter();

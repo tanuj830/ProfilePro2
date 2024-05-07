@@ -142,27 +142,30 @@ const page = () => {
   useEffect(() => {
     setResumeID(searchparams.get("resumeid") || "");
     if (resumeID)
-      axios.get(`http://localhost:8000/resume/${resumeID}`).then((res) => {
-        // setUserPrevData(res.data);
-        // if (resumeID) setDataFetchCompleted(true);
-        if (res.data !== undefined) {
-          setIsUserModiExistData(true);
-          setContactPageData(res.data.contact);
-          setEducationPageData(res.data.education);
-          setExperiencePageData(res.data.experience);
-          setProjectPageData(res.data.project);
-        } else {
-          setContactPageData({
-            name: "Tanuj Bhatt",
-            address: "Sunshine Enclave, Clement Town",
-            city: "Dehradun",
-            postalcode: "248002",
-            phone: "7668088539",
-            email: "tanujbhatt65@gmail.com",
-            linkedin: "https://tanujbhatt.in/",
-          });
-        }
-      });
+      axios
+        .get(`https://profileproserver.onrender.com/resume/${resumeID}`)
+        .then((res) => {
+          // axios.get(`http://localhost:8000/resume/${resumeID}`).then((res) => {
+          // setUserPrevData(res.data);
+          // if (resumeID) setDataFetchCompleted(true);
+          if (res.data !== undefined) {
+            setIsUserModiExistData(true);
+            setContactPageData(res.data.contact);
+            setEducationPageData(res.data.education);
+            setExperiencePageData(res.data.experience);
+            setProjectPageData(res.data.project);
+          } else {
+            setContactPageData({
+              name: "Tanuj Bhatt",
+              address: "Sunshine Enclave, Clement Town",
+              city: "Dehradun",
+              postalcode: "248002",
+              phone: "7668088539",
+              email: "tanujbhatt65@gmail.com",
+              linkedin: "https://tanujbhatt.in/",
+            });
+          }
+        });
   }, [resumeID]);
   return (
     <>
