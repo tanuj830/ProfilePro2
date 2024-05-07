@@ -34,42 +34,47 @@ const ResumeBuilder = () => {
   // }
   return (
     <div className="h-[80vh] lg:h-ful w-full">
-      <div className="flex justify-end items-center mb-3">
-        <Button className="flex items-center justify-center gap-2" size={"sm"}>
-          <Plus className="w-5 h-5" /> <span> Create Resume</span>
-        </Button>
-      </div>
       {resumes.length > 0 ? (
-        <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {resumes?.map((resume) => (
-            <Link
-              // onClick={() =>
-              //   router.push("/dashboard/resume-builder/playground/")
-              // }
-              key={resume._id}
-              href={{
-                pathname: `/dashboard/resume-builder/playground/`,
-                query: { resumeid: resume._id },
-              }}
-              className="w-full p-3 md:p-5  rounded-tr-[40px] rounded-sm bg-muted overflow-hidden"
+        <div>
+          <div className="flex justify-end items-center mb-3">
+            <Button
+              className="flex items-center justify-center gap-2"
+              size={"sm"}
             >
-              <img
-                src="/resume.jpeg"
-                className="object-cover h-40 w-full object-top rounded-tr-[40px] rounded-sm"
-                alt=""
-              />
+              <Plus className="w-5 h-5" /> <span> Create Resume</span>
+            </Button>
+          </div>
+          <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {resumes?.map((resume) => (
+              <Link
+                // onClick={() =>
+                //   router.push("/dashboard/resume-builder/playground/")
+                // }
+                key={resume._id}
+                href={{
+                  pathname: `/dashboard/resume-builder/playground/`,
+                  query: { resumeid: resume._id },
+                }}
+                className="w-full p-3 md:p-5  rounded-tr-[40px] rounded-sm bg-muted overflow-hidden"
+              >
+                <img
+                  src="/resume.jpeg"
+                  className="object-cover h-40 w-full object-top rounded-tr-[40px] rounded-sm"
+                  alt=""
+                />
 
-              <div className=" pt-4">
-                <h6 className="overflow-hidden text-sm">
-                  {resume.contact?.name}
-                </h6>
-                <small className=" mt-1 text-xs flex gap-1 items-center text-muted-foreground">
-                  <UpdateIcon />
-                  <span>{resume.Date.slice(0, 10)}</span>
-                </small>
-              </div>
-            </Link>
-          ))}
+                <div className=" pt-4">
+                  <h6 className="overflow-hidden text-sm">
+                    {resume.contact?.name}
+                  </h6>
+                  <small className=" mt-1 text-xs flex gap-1 items-center text-muted-foreground">
+                    <UpdateIcon />
+                    <span>{resume.Date.slice(0, 10)}</span>
+                  </small>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       ) : (
         <div className="flex justify-center h-full w-full items-center ">
