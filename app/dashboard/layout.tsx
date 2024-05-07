@@ -30,7 +30,7 @@ const DashboardLayout = ({
         <div className="lg:flex h-full">
           {/* pc dashboard sidebar */}
           {path !== "playground" ? (
-            <div className="hidden lg:block w-[300px] h-full ">
+            <div className="hidden lg:block w-[270px] xl:w-[300px] h-full ">
               <Sidebar />
             </div>
           ) : null}

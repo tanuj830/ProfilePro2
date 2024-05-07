@@ -4,7 +4,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { UpdateIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { error } from "console";
-import { File, Router } from "lucide-react";
+import { File, Plus, Router } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -30,9 +30,14 @@ const ResumeBuilder = () => {
   // }
   return (
     <div className="h-[80vh] lg:h-ful w-full">
+      <div className="flex justify-end items-center mb-3">
+        <Button className="flex items-center justify-center gap-2" size={"sm"}>
+          <Plus className="w-5 h-5" /> <span> Create Resume</span>
+        </Button>
+      </div>
       {resumes.length > 0 ? (
         <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {resumes.map((resume) => (
+          {resumes?.map((resume) => (
             <Link
               // onClick={() =>
               //   router.push("/dashboard/resume-builder/playground/")
@@ -52,7 +57,7 @@ const ResumeBuilder = () => {
 
               <div className=" pt-4">
                 <h6 className="overflow-hidden text-sm">
-                  {resume.contact.name}
+                  {resume.contact?.name}
                 </h6>
                 <small className=" mt-1 text-xs flex gap-1 items-center text-muted-foreground">
                   <UpdateIcon />
