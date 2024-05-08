@@ -85,7 +85,7 @@ const ResumeBuilder = () => {
             </span>
             <div className="md:w-[60%]">
               <h5 className="text-foreground font-medium my-4">
-                You dont have any resume created
+                You dont have any resume 
               </h5>
               <p className="text-muted-foreground text-wrap leading-7 text-sm">
                 You currently dont have any resume on which you worked on,
