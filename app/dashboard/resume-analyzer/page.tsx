@@ -22,7 +22,9 @@ const ResumeAnalyzer = () => {
             </p>
           </div>
           <Link href="/dashboard/resume-analyzer/playground">
-            <Button className="text-white">Analyze a new resume</Button>
+            <Button className="text-primary-foreground">
+              Analyze a new resume
+            </Button>
           </Link>
         </div>
       </div>

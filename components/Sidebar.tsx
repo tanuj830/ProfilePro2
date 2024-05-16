@@ -69,7 +69,7 @@ const Sidebar = () => {
         </div>
         <div>
           <Link
-            className={`bg-primary  p-3 rounded-lg flex items-center gap-2 text-md text-white `}
+            className={`bg-primary  p-3 rounded-lg flex items-center gap-2 text-md text-primary-foreground`}
             href="#"
           >
             <CreditCardIcon className="mr-2 h-4 w-4" />

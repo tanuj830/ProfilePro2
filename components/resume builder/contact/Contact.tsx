@@ -106,7 +106,7 @@ const Contact: React.FC<ContactProps> = ({
                 value={contactPageData.linkedin}
               />
             </div>
-            <Button type="submit" className="mt-5 text-white">
+            <Button type="submit" className="mt-5 text-primary-foreground">
               <span>Compile</span>
               {/* <span className="text-2xl">
                 <TiArrowRightThick />

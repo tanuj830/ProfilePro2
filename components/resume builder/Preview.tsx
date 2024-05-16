@@ -94,7 +94,7 @@ const Preview: React.FC<PreviewProps> = ({
             onClick={() => {
               handlePrint(null, () => componentRef.current);
             }}
-            className="text-white"
+            className="text-primary-foreground"
           >
             Download Resume
           </Button>
