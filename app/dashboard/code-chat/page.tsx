@@ -32,7 +32,7 @@ const CodeChat = () => {
         {/* <h6>Your current route is {path}</h6> */}
         <div className="flex flex-col items-center text-center gap-5">
           <span className="w-fit bg-secondary p-5 rounded-full ">
-            <PlusCircle className="w-10 h-10 text-primary" />
+            <PlusCircle className="w-10 h-10 " />
           </span>
           <div className="md:w-[60%]">
             <h5 className="text-foreground font-medium my-4">
@@ -45,9 +45,12 @@ const CodeChat = () => {
             </p>
           </div>
           {/* <Link href="/dashboard/code-chat/playground"> */}
-          <Button className="text-white">
+          <Button className="">
             <AlertDialog>
-              <AlertDialogTrigger> Create a new room</AlertDialogTrigger>
+              <AlertDialogTrigger className="text-primary">
+                {" "}
+                Create a new room
+              </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Create Room</AlertDialogTitle>
