@@ -47,10 +47,10 @@ const CodeChat = () => {
           {/* <Link href="/dashboard/code-chat/playground"> */}
           <Button className="">
             <AlertDialog>
-              <AlertDialogTrigger className="text-primary">
+              < className="text-primary">
                 {" "}
                 Create a new room
-              </AlertDialogTrigger>
+              </
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Create Room</AlertDialogTitle>
