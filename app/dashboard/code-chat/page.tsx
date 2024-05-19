@@ -50,7 +50,7 @@ const CodeChat = () => {
               <AlertDialogTrigger className="text-primary">
                 {" "}
                 Create a new room
-              </AlertDialogTrigger>
+              </
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Create Room</AlertDialogTitle>
