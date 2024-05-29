@@ -52,7 +52,7 @@ const CodeChat = () => {
                 Create a new room
               </AlertDialogTrigger>
               <AlertDialogContent>
-                <AlertDialogHeader>
+                <AlertDialogHeader
                   <AlertDialogTitle>Create Room</AlertDialogTitle>
                   <AlertDialogDescription>
                     Create room and share room id with your friends or
