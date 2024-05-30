@@ -43,7 +43,7 @@ const DashboardLayout = ({
               } items-center border-b border-muted p-5  py-5 md:px-10 lg:px-10 `}
             >
               <Link
-                className={`cursor-pointer text-[1.8rem] font-semibold inline  ${
+                className={`cursor-pointer text-[1.4rem] font-semibold inline  ${
                   path === "playground" ? "lg:inline" : "lg:hidden"
                 }`}
                 href="/"
