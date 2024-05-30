@@ -46,27 +46,9 @@ const CodeChat = () => {
           </div>
           {/* <Link href="/dashboard/code-chat/playground"> */}
           <Button className="">
-            <AlertDialog>
-              <AlertDialogTrigger className="">
-                {" "}
-                Create a new room
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Create Room</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Create room and share room id with your friends or
-                    collegoues and ask them to join your room.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={createRoomID}>
-                    Continue
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
+            <Link href={"/dashboard/code-chat/playground"}>
+              Create a new room
+            </Link>
           </Button>
           {/* </Link> */}
         </div>

@@ -514,7 +514,7 @@ const Page = () => {
       ) : (
         <div className="relative  overflow-hidden ">
           {/* navbar */}
-          <div className={`relative w-full px-6 md:px-10 py-4 `}>
+          {/* <div className={`relative w-full px-6 md:px-10 py-4 `}>
             <div className="flex justify-between items-center w-full gap-2">
               <div className="inline lg:hidden">
                 <Sheet>
@@ -567,7 +567,7 @@ const Page = () => {
                 </Sheet>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="h-screen w-full">
             <iframe
@@ -586,21 +586,10 @@ const Page = () => {
                   <MessageCircle className="w-7 h-7" />
                 </SheetTrigger>
               </div>
-              <SheetContent>
+              <SheetContent className="w-full ">
                 <SheetHeader>
                   {/* -------------------------------- */}
-                  <h6 className="text-md font-medium">
-                    Chat Box{" "}
-                    <span
-                      className="text-muted-foreground text-xs hover:underline cursor-pointer"
-                      onClick={() => {
-                        navigator.clipboard.writeText(roomid);
-                        setIdCopied(true);
-                      }}
-                    >
-                      #{roomid}
-                    </span>
-                  </h6>
+                  <h6 className="text-md font-medium">Chat Box </h6>
                   <p className="text-xs text-secondary-foreground">
                     Chat with your roommates{" "}
                     {idCopied ? (
@@ -634,7 +623,7 @@ const Page = () => {
                       </div>
                     </div>
                     <div className=" mt-3 ">
-                      <div className="   h-screen w-full  rounded-lg  bg-muted overflow-y-scroll overflow-hidden  hideScrollbar">
+                      <div className="   h-screen w-full  rounded-lg  bg-muted overflow-y-scroll p-5  md:p-0  hideScrollbar">
                         {/* map recent chats */}
                         <div className=" md:px-4 gap-y-4 h-full">
                           {chats.length > 0
@@ -648,7 +637,7 @@ const Page = () => {
                                   }`}
                                 >
                                   <div>
-                                    <small className="italic pl-2 text-xs">
+                                    <small className="italic  text-xs">
                                       {cht.username}
                                     </small>
                                     <h6

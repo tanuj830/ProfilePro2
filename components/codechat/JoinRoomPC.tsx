@@ -3,6 +3,12 @@ import React from "react";
 import { FaUser } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { SiGoogleclassroom } from "react-icons/si";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { MdPrivacyTip } from "react-icons/md";
+import { Plus } from "lucide-react";
+import { nanoid } from "nanoid";
+import { useRouter } from "next/navigation";
 
 interface JoinRoomPCProps {
   setRoomID: Function;
@@ -15,73 +21,85 @@ const JoinRoomPC: React.FC<JoinRoomPCProps> = ({
   setUsername,
   joinRoom,
 }) => {
+  const router = useRouter();
+
+  const createRoomID = () => {
+    const unique_id = nanoid();
+    // localStorage.setItem("roomid", unique_id);
+    alert(
+      "Your room ID: " +
+        unique_id +
+        "\n Enter this room id in the input field to create a room."
+    );
+    // router.push(`/dashboard/code-chat/playground/${unique_id}`);
+  };
   return (
     <div>
-      <div className="hidden md:inline-block w-full h-screen">
-        <div className="flex w-full h-full">
-          <div className="w-[50%] bg-slate-50 p-10">
-            <div className="flex justify-between items-center">
-              <Link href="/">
-                <img src="/favicon.png" className="w-16" alt="" />
-              </Link>
-              <div>Help</div>
-            </div>
-            <div className="md:px-0 lg:px-28 xl:px-40">
+      <div className=" w-full h-[80vh]">
+        <div className="flex justify-center items-center w-full h-full">
+          <div className="xl:w-[30%] lg:w-[40%] md:w-[60%]">
+            <div className="">
               <div>
-                <h1 className="text-3xl font-bold mt-20">
-                  Welcome to your workplace. Create room for{" "}
-                  <span className="text-indigo-600">Code Chat</span>
+                <h1 className="text-2xl font-bold ">
+                  Welcome to your workplace! <br />
+                  Create your room.
                 </h1>
               </div>
-              <div className="pt-10">
-                <div>
-                  <label className="font-semibold text-sm pl-1 py-1">
+              <form className="pt-10 flex  justify-start flex-col items-start">
+                <div className="w-full">
+                  <label className="font-medium text-xs  py-1 uppercase">
                     Enter Room ID
                   </label>
-                  <div className="relative h-fit ">
-                    <input
-                      className="bg-indigo-500/10 rounded-xl outline-indigo-500 px-4 py-3 w-full"
+                  <div className="relative  w-full">
+                    <Input
+                      className=" w-full"
                       placeholder="Room ID"
                       onChange={(event) => {
                         setRoomID(event.target.value);
                       }}
                     />
-                    <span className="absolute top-3  text-slate-500 text-2xl right-4">
-                      <SiGoogleclassroom />
+                    <span className="absolute top-[35%]  text-primary text-md right-4">
+                      <MdPrivacyTip />
                     </span>
                   </div>
                 </div>
-                <div className="pt-6">
-                  <label className="font-semibold text-sm pl-1 py-1">
-                    User Name
+                <div className="mt-6 w-full">
+                  <label className="font-medium text-xs  py-1 uppercase">
+                    Username
                   </label>
                   <div className="relative h-fit ">
-                    <input
-                      className="bg-indigo-500/10 rounded-xl outline-indigo-500 px-4 py-3 w-full"
+                    <Input
+                      className=" w-full"
                       placeholder="Username"
                       onChange={(event) => {
                         setUsername(event.target.value);
                       }}
                     />
-                    <span className="absolute top-3  text-slate-500 text-2xl right-4">
+                    <span className="absolute top-[38%]  text-primary text-sm right-4">
                       <FaUser />
                     </span>
                   </div>
                 </div>
 
-                <div className="flex justify-center">
-                  <button
-                    className="mt-6 font-semibold text-lg bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-full px-5 py-2 flex items-center gap-2"
+                <div className="flex justify-center gap-4 flex-col">
+                  <Button
+                    className="mt-6   text-xs flex items-center gap-2 w-fit"
                     onClick={(e: any) => joinRoom()}
                   >
                     Join Room <FaArrowRightLong />
-                  </button>
+                  </Button>
+                  <div className="flex items-center text-xs">
+                    Dont't have room id
+                    <span
+                      onClick={createRoomID}
+                      className="text-blue-500 font-medium  flex items-center "
+                    >
+                      , want to create one?
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
-          </div>
-          <div className="flex w-[50%] h-screen">
-            <img className="object-cover w-full" src="/laptop.jpeg" alt="" />
           </div>
         </div>
       </div>
