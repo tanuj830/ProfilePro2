@@ -70,14 +70,17 @@ const Preview: React.FC<PreviewProps> = ({
       // update data
 
       axios
-        .post(`http://localhost:8000/resume/update/${resumeID}`, data)
+        .post(
+          `https://profileproserver.onrender.com/resume/update/${resumeID}`,
+          data
+        )
         .then((res) => console.log("updated"))
         .catch((err) => console.log(err));
     } else {
       // create new data
 
       axios
-        .post("http://localhost:8000/resume/create", data)
+        .post("https://profileproserver.onrender.com/resume/create", data)
         .then((res) => console.log("saved"))
         .catch((err) => console.log(err));
     }
