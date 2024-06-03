@@ -166,7 +166,7 @@ const Page = () => {
     setChats((chats) => [...chats, newOutgoingChat]);
     if (message) socket.emit("send_message", { message, username, roomID });
     setMessage("");
-  
+  };
 
   const copyRoomId = () => {
     navigator.clipboard.writeText(roomID);
