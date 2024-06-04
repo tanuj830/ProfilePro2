@@ -175,7 +175,7 @@ const Page = () => {
     );
   };
 
-  const joinRoom = () => 
+  const joinRoom = () => {
     if (roomID !== "") {
       socket.emit("join_room", roomID);
       setOpenModel(!openModel);
