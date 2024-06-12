@@ -170,7 +170,7 @@ const Page = () => {
 
   const copyRoomId = () => {
     navigator.clipboard.writeText(roomID);
-    alert(
+    ale
       "room id copied. Now you can share this id to your friends so that they can also join your room."
     );
   };
