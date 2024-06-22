@@ -14,6 +14,7 @@ import {
   CreditCardIcon,
   Home,
   Menu,
+  MenuIcon,
   MenuSquareIcon,
   SearchCheckIcon,
 } from "lucide-react";
