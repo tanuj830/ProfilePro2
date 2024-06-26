@@ -21,7 +21,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const MobileSidebar = () =
+const MobileSidebar = () => {
   const path = usePathname();
   const dashboardLinks = [
     {
