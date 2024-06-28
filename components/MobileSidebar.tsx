@@ -22,7 +22,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MobileSidebar = () => {
-  const 
+  const path = usePathname();
   const dashboardLinks = [
     {
       id: 0,
